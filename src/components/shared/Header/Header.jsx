@@ -7,7 +7,7 @@ export default function Header() {
         <button>
           <AiOutlineMenu className="fill-tertiary text-[8vw]" />
         </button>
-        <div className="font-logoFont text-[8vw]">OdinShop</div>
+        <div className="pt-[7px] font-logoFont text-[8vw]">OdinShop</div>
         <button>
           <AiOutlineShoppingCart className="text-[8vw]" />
         </button>
