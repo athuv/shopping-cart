@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import { AiOutlineMenu, AiOutlineShoppingCart } from 'react-icons/ai';
 
-export default function Header() {
+export default function Header({ onClick }) {
   return (
     <header className="flex h-[8vh] items-center bg-secondary px-[5vw]">
       <nav className="flex w-full items-center justify-between text-white">
-        <button>
+        <button onClick={onClick}>
           <AiOutlineMenu className="fill-tertiary text-[8vw]" />
         </button>
         <div className="pt-[7px] font-logoFont text-[8vw]">OdinShop</div>
@@ -15,3 +16,7 @@ export default function Header() {
     </header>
   );
 }
+
+Header.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
