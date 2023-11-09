@@ -9,6 +9,9 @@ export default {
         secondary: '#31796d',
         tertiary: '#ffbb38',
       },
+      fontFamily: {
+        logoFont: ['FACON'],
+      },
     },
   },
   plugins: [],
