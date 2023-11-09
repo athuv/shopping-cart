@@ -15,14 +15,14 @@ export default function Header({ onClick }) {
         </button>
         <div className="pt-[7px] font-logoFont text-4xl">OdinShop</div>
         <div className="flex items-center justify-center gap-3">
-          <button className="hidden lg:inline-block">
+          <button className="hidden hover:text-tertiary lg:inline-block">
             <AiOutlineShop className="text-4xl" />
           </button>
-          <button className="hidden lg:inline-block">
+          <button className="hidden hover:text-tertiary lg:inline-block">
             <AiOutlineHome className="text-4xl" />
           </button>
           <button>
-            <AiOutlineShoppingCart className="text-4xl" />
+            <AiOutlineShoppingCart className="text-4xl hover:text-tertiary" />
           </button>
         </div>
       </nav>
