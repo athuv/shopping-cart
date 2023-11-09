@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
   AiOutlineCloseCircle,
   AiOutlineHome,
@@ -25,20 +25,30 @@ export default function Sidebar({ isSidebarOpen, onClick }) {
           </div>
           <div className="flex flex-col gap-3 pt-2">
             <div className="group">
-              <Link
+              <NavLink
                 to="/"
-                className="flex items-center justify-start gap-3 text-xl group-hover:text-tertiary"
+                onClick={onClick}
+                className={({ isActive }) =>
+                  `flex items-center justify-start gap-3 text-xl ${
+                    isActive ? 'text-tertiary' : ''
+                  } group-hover:text-tertiary`
+                }
               >
                 <AiOutlineHome /> Home
-              </Link>
+              </NavLink>
             </div>
             <div className="group">
-              <Link
+              <NavLink
                 to="shop"
-                className="flex items-center justify-start gap-3 text-xl group-hover:text-tertiary"
+                onClick={onClick}
+                className={({ isActive }) =>
+                  `flex items-center justify-start gap-3 text-xl ${
+                    isActive ? 'text-tertiary' : ''
+                  } group-hover:text-tertiary`
+                }
               >
                 <AiOutlineShop className="hover:text-tertiary" /> Shop
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>

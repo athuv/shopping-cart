@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import {
   AiOutlineMenu,
   AiOutlineShoppingCart,
@@ -15,15 +16,36 @@ export default function Header({ onClick }) {
         </button>
         <div className="pt-[7px] font-logoFont text-4xl">OdinShop</div>
         <div className="flex items-center justify-center gap-3">
-          <button className="hidden hover:text-tertiary lg:inline-block">
-            <AiOutlineShop className="text-4xl" />
-          </button>
-          <button className="hidden hover:text-tertiary lg:inline-block">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `text-4xl ${
+                isActive ? 'text-tertiary' : ''
+              } hidden hover:text-tertiary lg:inline-block`
+            }
+          >
             <AiOutlineHome className="text-4xl" />
-          </button>
-          <button>
-            <AiOutlineShoppingCart className="text-4xl hover:text-tertiary" />
-          </button>
+          </NavLink>
+          <NavLink
+            to="shop"
+            className={({ isActive }) =>
+              `text-4xl ${
+                isActive ? 'text-tertiary' : ''
+              } hidden hover:text-tertiary lg:inline-block`
+            }
+          >
+            <AiOutlineShop className="text-4xl" />
+          </NavLink>
+          <NavLink
+            to="cart"
+            className={({ isActive }) =>
+              `text-4xl ${
+                isActive ? 'text-tertiary' : ''
+              } hidden hover:text-tertiary lg:inline-block`
+            }
+          >
+            <AiOutlineShoppingCart className="text-4xl" />
+          </NavLink>
         </div>
       </nav>
     </header>
