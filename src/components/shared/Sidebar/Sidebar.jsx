@@ -8,7 +8,7 @@ export default function Sidebar({ isSidebarOpen, onClick }) {
           onClick={onClick}
           className="fixed inset-0 bg-black opacity-50"
         ></div>
-        <div className="fixed h-full w-2/5 bg-red-500">SIDEBAR</div>
+        <div className="fixed h-full w-3/6 bg-primary"></div>
       </aside>
     )
   );
