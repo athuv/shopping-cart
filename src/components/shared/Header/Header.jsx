@@ -9,7 +9,7 @@ import {
 
 export default function Header({ onClick }) {
   return (
-    <header className="flex h-[8vh] items-center bg-secondary px-[5vw]">
+    <header className="flex h-[8vh] items-center bg-secondary px-6">
       <nav className="flex w-full items-center justify-between text-white">
         <button className="lg:hidden" onClick={onClick}>
           <AiOutlineMenu className="fill-tertiary text-4xl" />
