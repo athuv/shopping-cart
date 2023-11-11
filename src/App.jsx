@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Header onClick={handleMenuClick} />
-      <main>
+      <main className="flex-grow">
         <Sidebar isSidebarOpen={isSidebarOpen} onClick={handleMenuClick} />
         <Outlet />
       </main>
