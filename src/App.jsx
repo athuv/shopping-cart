@@ -13,8 +13,10 @@ function App() {
   return (
     <>
       <Header onClick={handleMenuClick} />
-      <Sidebar isSidebarOpen={isSidebarOpen} onClick={handleMenuClick} />
-      <Outlet />
+      <main>
+        <Sidebar isSidebarOpen={isSidebarOpen} onClick={handleMenuClick} />
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
