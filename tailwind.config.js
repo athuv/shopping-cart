@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       screens: {
-        mobile480: '480px',
+        xs: '480px',
       },
       colors: {
         primary: '#f8f8f8',
-        primaryLight: 'EEF1F1',
+        primaryLight: '#EEF1F1',
         secondary: '#31796d',
         tertiary: '#ffbb38',
       },
