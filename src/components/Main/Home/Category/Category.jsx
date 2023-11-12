@@ -79,7 +79,7 @@ export default function Category() {
     <section>
       <div className="px-6">
         <h1 className="pb-6 text-2xl font-bold ">Category</h1>
-        <div className="grid grid-cols-2 items-center justify-items-center gap-3">
+        <div className="grid grid-cols-2 items-center justify-items-center gap-3 sm:grid-cols-4 xl:grid-cols-8">
           {categories.map((category, index) => (
             <div
               className="group flex flex-col items-center justify-center gap-4 "
