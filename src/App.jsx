@@ -15,7 +15,7 @@ function App() {
       <Header onClick={handleMenuClick} />
       <main className="flex-grow">
         <Sidebar isSidebarOpen={isSidebarOpen} onClick={handleMenuClick} />
-        <Outlet />
+        <Outlet context={isSidebarOpen} />
       </main>
       <Footer />
     </>

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import Card from '../../../shared/Card/Card';
 
 export default function Featured() {
   const [featuredData, setFeaturedData] = useState([]);
+  const isSidebarOpen = useOutletContext();
 
   useEffect(() => {
     if (featuredData.length === 0) {
@@ -20,7 +22,11 @@ export default function Featured() {
 
   return (
     <section>
-      <Card title={'Featured Products'} data={featuredData} />
+      <Card
+        title={'Featured Products'}
+        isSidebarOpen={isSidebarOpen}
+        data={featuredData}
+      />
     </section>
   );
 }

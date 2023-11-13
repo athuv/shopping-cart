@@ -8,7 +8,7 @@ import {
   TbRepeat,
 } from 'react-icons/tb';
 
-export default function Card({ data, title }) {
+export default function Card({ data, title, isSidebarOpen }) {
   return (
     <div className="px-6">
       <h1 className="pb-6 text-2xl font-bold ">{title}</h1>
@@ -28,7 +28,9 @@ export default function Card({ data, title }) {
           {data.map((data) => (
             <div
               key={data.id}
-              className="group relative flex h-[480px] w-60 flex-col items-center justify-center gap-2 justify-self-center overflow-hidden bg-primaryLight p-[2%] lg:h-[40rem] lg:w-80"
+              className={`group relative ${
+                isSidebarOpen && 'z-[-1]'
+              } flex h-[480px] w-60 flex-col items-center justify-center gap-2 justify-self-center overflow-hidden bg-primaryLight p-[2%] lg:h-[40rem] lg:w-72`}
             >
               <div className="flex flex-grow flex-col items-center justify-center">
                 <img
@@ -68,4 +70,5 @@ export default function Card({ data, title }) {
 Card.propTypes = {
   data: PropTypes.array,
   title: PropTypes.string.isRequired,
+  isSidebarOpen: PropTypes.bool.isRequired,
 };
