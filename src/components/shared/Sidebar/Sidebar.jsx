@@ -40,7 +40,7 @@ export default function Sidebar({ isSidebarOpen, onClick }) {
             <div className="group">
               {token ? (
                 <NavLink
-                  to="#"
+                  to="/#"
                   onClick={() => {
                     onClick();
                     logout();
