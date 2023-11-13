@@ -8,7 +8,7 @@ export default function Featured() {
     if (featuredData === null) {
       const fetchFeaturedData = async () => {
         const response = await fetch(
-          'https://fakestoreapi.com/prosducts?limit=6',
+          'https://fakestoreapi.com/products?limit=6',
         );
         const data = await response.json();
         setFeaturedData(data);
@@ -35,7 +35,7 @@ export default function Featured() {
             featuredData.map((data) => (
               <div
                 key={data.id}
-                className="flex h-[480px] w-60 flex-col items-center justify-center gap-2 bg-primaryLight p-[2%]"
+                className="flex h-[480px] w-60 flex-col items-center justify-center gap-2 justify-self-center bg-primaryLight p-[2%]"
               >
                 <div className="flex flex-grow flex-col items-center justify-center">
                   <img
