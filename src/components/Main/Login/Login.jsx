@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAuth } from '../../../AuthProvider';
+import useAuth from '../../../useAuth';
 
 export default function Login() {
   const [username, setUserName] = useState('mor_2314');
