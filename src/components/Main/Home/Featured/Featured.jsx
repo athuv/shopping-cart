@@ -8,7 +8,7 @@ export default function Featured() {
     if (featuredData === null) {
       const fetchFeaturedData = async () => {
         const response = await fetch(
-          'https://fakestoreapi.com/prosductss?limit=6',
+          'https://fakestoreapi.com/prosducts?limit=6',
         );
         const data = await response.json();
         setFeaturedData(data);
