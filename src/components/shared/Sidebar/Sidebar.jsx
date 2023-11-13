@@ -14,7 +14,7 @@ export default function Sidebar({ isSidebarOpen, onClick }) {
           onClick={onClick}
           className="fixed inset-0 bg-black opacity-50"
         ></div>
-        <div className=" fixed h-full w-[280px] bg-primary p-3">
+        <div className="fixed top-0 h-full w-[280px] bg-primary p-3">
           <div className="flex items-center justify-end text-center text-4xl">
             <NavLink
               className="w-full self-center text-center font-logoFont text-xl"
