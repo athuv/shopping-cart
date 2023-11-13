@@ -4,6 +4,7 @@ import App from './App';
 import Home from './components/Main/Home/Home';
 import Shop from './components/Main/Shop/Shop';
 import Login from './components/Main/Login/Login';
+import Cart from './components/Main/Cart/Cart';
 
 export default function Router() {
   const router = createBrowserRouter([
@@ -16,12 +17,8 @@ export default function Router() {
           element: <Home />,
         },
         {
-          path: 'shop/*',
-          element: (
-            <ProtectedRoute>
-              <Shop />
-            </ProtectedRoute>
-          ),
+          path: 'shop',
+          element: <Shop />,
         },
         {
           path: 'shop/:page',
@@ -34,6 +31,14 @@ export default function Router() {
         {
           path: 'login/:previousPage',
           element: <Login />,
+        },
+        {
+          path: 'cart',
+          element: (
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          ),
         },
       ],
     },
