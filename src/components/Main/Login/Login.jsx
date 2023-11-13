@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useAuth } from '../../../AuthProvider';
 
 export default function Login() {
-  const [username, setUserName] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [username, setUserName] = useState('mor_2314');
+  const [password, setPassword] = useState('83r5^_');
   const { login } = useAuth();
+  const { previousPage } = useParams();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,7 +23,7 @@ export default function Login() {
       });
 
       const result = await response.json();
-      login(result.token);
+      login(result.token, previousPage);
     } catch (error) {
       console.log(error);
     }

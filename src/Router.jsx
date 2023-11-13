@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
 import App from './App';
 import Home from './components/Main/Home/Home';
 import Shop from './components/Main/Shop/Shop';
@@ -15,8 +16,12 @@ export default function Router() {
           element: <Home />,
         },
         {
-          path: 'shop',
-          element: <Shop />,
+          path: 'shop/*',
+          element: (
+            <ProtectedRoute>
+              <Shop />
+            </ProtectedRoute>
+          ),
         },
         {
           path: 'shop/:page',
@@ -24,6 +29,10 @@ export default function Router() {
         },
         {
           path: 'login',
+          element: <Login />,
+        },
+        {
+          path: 'login/:previousPage',
           element: <Login />,
         },
       ],
