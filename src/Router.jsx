@@ -17,6 +17,10 @@ export default function Router() {
           path: 'shop',
           element: <Shop />,
         },
+        {
+          path: 'shop/:page',
+          element: <Shop />,
+        },
       ],
     },
   ]);
