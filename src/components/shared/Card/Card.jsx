@@ -1,13 +1,18 @@
 import loadingCircle from './../../../assets/images/loading-circles.svg';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { TbShoppingCartPlus } from 'react-icons/tb';
+import {
+  TbShoppingCartPlus,
+  TbArrowsMaximize,
+  TbHeart,
+  TbRepeat,
+} from 'react-icons/tb';
 
 export default function Card({ featuredData }) {
   return (
     <div className="px-6">
       <h1 className="pb-6 text-2xl font-bold ">Featured Products</h1>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {featuredData === null ? (
           <div>
             <img
@@ -20,7 +25,7 @@ export default function Card({ featuredData }) {
           featuredData.map((data) => (
             <div
               key={data.id}
-              className="group relative flex h-[480px] w-60 flex-col items-center justify-center gap-2 justify-self-center overflow-hidden bg-primaryLight p-[2%]"
+              className="group relative flex h-[480px] w-60 flex-col items-center justify-center gap-2 justify-self-center overflow-hidden bg-primaryLight p-[2%] lg:h-[40rem] lg:w-80"
             >
               <div className="flex flex-grow flex-col items-center justify-center">
                 <img
@@ -33,8 +38,19 @@ export default function Card({ featuredData }) {
                 <div className="line-clamp-2 text-center">{data.title}</div>
                 <div className="text-center">{data.price}</div>
               </div>
-              <div className="flex w-full translate-y-10 items-center justify-center transition duration-500 group-hover:-translate-y-32">
-                <Link className="absolute flex  items-center  justify-center gap-1 rounded bg-secondary p-2 text-white">
+              <div className="absolute flex translate-x-44 flex-col gap-2 transition duration-500 group-hover:translate-x-28">
+                <Link className="rounded bg-secondary p-2">
+                  <TbArrowsMaximize />
+                </Link>
+                <Link className="rounded bg-secondary p-2">
+                  <TbHeart />
+                </Link>
+                <Link className="rounded bg-secondary p-2">
+                  <TbRepeat />
+                </Link>
+              </div>
+              <div className="absolute flex w-full translate-y-96 items-center justify-center transition duration-500 group-hover:translate-y-32">
+                <Link className=" flex  items-center  justify-center gap-1 rounded bg-secondary p-2 text-white">
                   <TbShoppingCartPlus /> <span>Add to Cart</span>
                 </Link>
               </div>
