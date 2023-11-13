@@ -13,7 +13,7 @@ export default function Card({ data, title }) {
     <div className="px-6">
       <h1 className="pb-6 text-2xl font-bold ">{title}</h1>
 
-      {data === null && (
+      {data.length === 0 && (
         <div>
           <img
             className="h-16 w-full lg:h-28"
@@ -23,7 +23,7 @@ export default function Card({ data, title }) {
         </div>
       )}
 
-      {data !== null && (
+      {data.length > 0 && (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {data.map((data) => (
             <div
