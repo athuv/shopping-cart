@@ -1,14 +1,18 @@
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../../../AuthProvider';
 import {
   AiOutlineCloseCircle,
   AiOutlineHome,
   AiOutlineShop,
   AiOutlineShoppingCart,
   AiOutlineLogin,
+  AiOutlineLogout,
 } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 
 export default function Sidebar({ isSidebarOpen, onClick }) {
+  const { token, logout } = useAuth();
+
   return (
     isSidebarOpen && (
       <aside>
@@ -34,17 +38,34 @@ export default function Sidebar({ isSidebarOpen, onClick }) {
           </div>
           <div className="flex flex-col gap-3 pt-2">
             <div className="group">
-              <NavLink
-                to="login"
-                onClick={onClick}
-                className={({ isActive }) =>
-                  `flex items-center justify-start gap-3 text-xl ${
-                    isActive ? 'text-tertiary' : ''
-                  } group-hover:text-tertiary`
-                }
-              >
-                <AiOutlineLogin /> Login / Signup
-              </NavLink>
+              {token ? (
+                <NavLink
+                  to="#"
+                  onClick={() => {
+                    onClick();
+                    logout();
+                  }}
+                  className={({ isActive }) =>
+                    `flex items-center justify-start gap-3 text-xl ${
+                      isActive ? 'text-tertiary' : ''
+                    } group-hover:text-tertiary`
+                  }
+                >
+                  <AiOutlineLogout /> Logout
+                </NavLink>
+              ) : (
+                <NavLink
+                  to="login"
+                  onClick={onClick}
+                  className={({ isActive }) =>
+                    `flex items-center justify-start gap-3 text-xl ${
+                      isActive ? 'text-tertiary' : ''
+                    } group-hover:text-tertiary`
+                  }
+                >
+                  <AiOutlineLogin /> Login / Signup
+                </NavLink>
+              )}
             </div>
             <div className="group">
               <NavLink

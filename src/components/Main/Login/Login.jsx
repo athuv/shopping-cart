@@ -1,4 +1,11 @@
+import { useState } from 'react';
+import { useAuth } from '../../../AuthProvider';
+
 export default function Login() {
+  const [username, setUserName] = useState(null);
+  const [password, setPassword] = useState(null);
+  const { login } = useAuth();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -8,13 +15,13 @@ export default function Login() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          username: 'mor_2314',
-          password: '83r5^_',
+          username: username,
+          password: password,
         }),
       });
 
       const result = await response.json();
-      console.log(result.token);
+      login(result.token);
     } catch (error) {
       console.log(error);
     }
@@ -31,11 +38,19 @@ export default function Login() {
           <div className="flex w-fit flex-col items-center justify-center gap-4">
             <div className="group flex gap-1">
               <label className="w-24">User Name:</label>
-              <input className="border-2 border-tertiary" type="text" />
+              <input
+                onChange={(e) => setUserName(e.target.value)}
+                className="border-2 border-tertiary"
+                type="text"
+              />
             </div>
             <div className="group flex gap-1">
               <label className="w-24">Password:</label>
-              <input className="border-2 border-tertiary" type="password" />
+              <input
+                onChange={(e) => setPassword(e.target.value)}
+                className="border-2 border-tertiary"
+                type="password"
+              />
             </div>
             <button className="w-full bg-secondary p-2 text-tertiary">
               Login
