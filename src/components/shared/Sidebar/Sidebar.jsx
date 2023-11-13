@@ -3,6 +3,8 @@ import {
   AiOutlineCloseCircle,
   AiOutlineHome,
   AiOutlineShop,
+  AiOutlineShoppingCart,
+  AiOutlineLogin,
 } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 
@@ -31,6 +33,32 @@ export default function Sidebar({ isSidebarOpen, onClick }) {
             </button>
           </div>
           <div className="flex flex-col gap-3 pt-2">
+            <div className="group">
+              <NavLink
+                to="login"
+                onClick={onClick}
+                className={({ isActive }) =>
+                  `flex items-center justify-start gap-3 text-xl ${
+                    isActive ? 'text-tertiary' : ''
+                  } group-hover:text-tertiary`
+                }
+              >
+                <AiOutlineLogin /> Login / Signup
+              </NavLink>
+            </div>
+            <div className="group">
+              <NavLink
+                to="cart"
+                onClick={onClick}
+                className={({ isActive }) =>
+                  `flex items-center justify-start gap-3 text-xl ${
+                    isActive ? 'text-tertiary' : ''
+                  } group-hover:text-tertiary`
+                }
+              >
+                <AiOutlineShoppingCart /> Cart
+              </NavLink>
+            </div>
             <div className="group">
               <NavLink
                 to="/"
