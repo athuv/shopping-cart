@@ -38,7 +38,7 @@ export default function Card({ featuredData }) {
                 <div className="line-clamp-2 text-center">{data.title}</div>
                 <div className="text-center">{data.price}</div>
               </div>
-              <div className="absolute flex translate-x-44 flex-col gap-2 transition duration-500 group-hover:translate-x-28">
+              <div className="absolute flex translate-x-44 flex-col gap-2 transition duration-500 group-hover:translate-x-24">
                 <Link className="rounded bg-secondary p-2">
                   <TbArrowsMaximize />
                 </Link>
