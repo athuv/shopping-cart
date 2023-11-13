@@ -8,21 +8,24 @@ import {
   TbRepeat,
 } from 'react-icons/tb';
 
-export default function Card({ featuredData }) {
+export default function Card({ data, title }) {
   return (
     <div className="px-6">
-      <h1 className="pb-6 text-2xl font-bold ">Featured Products</h1>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {featuredData === null ? (
-          <div>
-            <img
-              className="h-16 w-full lg:h-28"
-              alt="loading-circle"
-              src={loadingCircle}
-            />
-          </div>
-        ) : (
-          featuredData.map((data) => (
+      <h1 className="pb-6 text-2xl font-bold ">{title}</h1>
+
+      {data === null && (
+        <div>
+          <img
+            className="h-16 w-full lg:h-28"
+            alt="loading-circle"
+            src={loadingCircle}
+          />
+        </div>
+      )}
+
+      {data !== null && (
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {data.map((data) => (
             <div
               key={data.id}
               className="group relative flex h-[480px] w-60 flex-col items-center justify-center gap-2 justify-self-center overflow-hidden bg-primaryLight p-[2%] lg:h-[40rem] lg:w-80"
@@ -36,7 +39,7 @@ export default function Card({ featuredData }) {
               </div>
               <div className="flex flex-col items-center justify-center">
                 <div className="line-clamp-2 text-center">{data.title}</div>
-                <div className="text-center">{data.price}</div>
+                <div className="text-center">Rs.{data.price}</div>
               </div>
               <div className="absolute flex translate-x-44 flex-col gap-2 transition duration-500 group-hover:translate-x-24">
                 <Link className="rounded bg-secondary p-2">
@@ -50,18 +53,19 @@ export default function Card({ featuredData }) {
                 </Link>
               </div>
               <div className="absolute flex w-full translate-y-96 items-center justify-center transition duration-500 group-hover:translate-y-32">
-                <Link className=" flex  items-center  justify-center gap-1 rounded bg-secondary p-2 text-white">
+                <Link className="flex items-center justify-center gap-1 rounded bg-secondary p-2 text-white">
                   <TbShoppingCartPlus /> <span>Add to Cart</span>
                 </Link>
               </div>
             </div>
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
 Card.propTypes = {
-  featuredData: PropTypes.array,
+  data: PropTypes.array,
+  title: PropTypes.string.isRequired,
 };

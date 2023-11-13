@@ -20,7 +20,7 @@ export default function Featured() {
 
   return (
     <section>
-      <Card featuredData={featuredData} />
+      <Card title={'Featured Products'} data={featuredData} />
     </section>
   );
 }
