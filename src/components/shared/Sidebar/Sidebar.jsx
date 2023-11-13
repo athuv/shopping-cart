@@ -40,7 +40,7 @@ export default function Sidebar({ isSidebarOpen, onClick }) {
             <div className="group">
               {token ? (
                 <NavLink
-                  to="/#"
+                  to="/logout"
                   onClick={() => {
                     onClick();
                     logout();
@@ -82,7 +82,7 @@ export default function Sidebar({ isSidebarOpen, onClick }) {
             </div>
             <div className="group">
               <NavLink
-                to="/"
+                to=""
                 onClick={onClick}
                 className={({ isActive }) =>
                   `flex items-center justify-start gap-3 text-xl ${
