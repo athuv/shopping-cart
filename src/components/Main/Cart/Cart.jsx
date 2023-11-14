@@ -36,8 +36,27 @@ export default function Cart() {
     }
   }, []);
 
-  const handleQuantityPlus = (id) => {
+  const handleQuantityPlus = async (id) => {
+    const cartResponse = await fetch(`https://fakestoreapi.com/carts/1`);
+    const cartData = await cartResponse.json();
+
+    const productIndex = cartData.products.findIndex(
+      (product) => product.productId === id,
+    );
     console.log(id);
+    if (productIndex !== -1) {
+      cartData.products[productIndex].quantity += 1;
+
+      const response = await fetch(`https://fakestoreapi.com/carts/1`, {
+        method: 'PATCH',
+        body: JSON.stringify(cartData),
+      });
+
+      const updatedData = await response.json();
+      console.log(updatedData);
+    } else {
+      console.log('notFoud');
+    }
   };
 
   return (
@@ -93,7 +112,7 @@ export default function Cart() {
                                 type="button"
                                 className="text-qgray text-base"
                                 onClick={() => {
-                                  handleQuantityPlus(data.productId);
+                                  handleQuantityPlus(productDetails.id);
                                 }}
                               >
                                 +
