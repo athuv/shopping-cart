@@ -40,16 +40,12 @@ export default function Sidebar({ isSidebarOpen, onClick }) {
             <div className="group">
               {token ? (
                 <NavLink
-                  to="/logout"
+                  to="/#"
                   onClick={() => {
                     onClick();
                     logout();
                   }}
-                  className={({ isActive }) =>
-                    `flex items-center justify-start gap-3 text-xl ${
-                      isActive ? 'text-tertiary' : ''
-                    } group-hover:text-tertiary`
-                  }
+                  className="flex items-center justify-start gap-3 text-xl group-hover:text-tertiary"
                 >
                   <AiOutlineLogout /> Logout
                 </NavLink>
